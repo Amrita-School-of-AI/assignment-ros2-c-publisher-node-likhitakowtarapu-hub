@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
-project(assignment_ros2_c_publisher_node_likhitakowtarapu_hub)
+project(ros2_publisher)
 
-# Enable warnings
+# Compiler warnings
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
@@ -11,7 +11,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
-# Create executable
+# Create publisher node executable
 add_executable(publisher_node src/publisher_node.cpp)
 
 # Link dependencies
@@ -26,7 +26,7 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-# Enable testing (optional but safe)
+# Testing (optional, required by CI sometimes)
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
